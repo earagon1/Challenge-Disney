@@ -18,6 +18,7 @@ import lombok.NoArgsConstructor;
 public class GenreEntity {
 
 	/*
+	 * Atributos
 	 * Nombre,Imagen,Películas o series asociadas
 	 * 
 	 * */

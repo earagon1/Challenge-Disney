@@ -1,6 +1,8 @@
 package com.challenge.Entity;
 
-import java.util.Date;
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -40,7 +42,8 @@ public class MovieEntity {
 	private String movieTitle;
 	
 	@Column (name= "movie_creation")
-	private Date movieCreation;
+	@DateTimeFormat(pattern="yyyy/MM/dd")
+	private LocalDate movieCreation;
 
 	@Column @Enumerated(EnumType.STRING)
 	private Qualification qualification;
