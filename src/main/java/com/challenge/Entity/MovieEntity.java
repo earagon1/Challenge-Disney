@@ -23,9 +23,11 @@ import lombok.NoArgsConstructor;
 public class MovieEntity {
 
 	/*
+	 * Atributos
 	 * Imagen,Título,Fecha de creación,Calificación (del 1 al 5),Personajes asociados
 	 * 
 	 * */
+	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	@Column (name="movie_id")
