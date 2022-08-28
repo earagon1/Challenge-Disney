@@ -1,11 +1,15 @@
 package com.challenge.Entity;
 
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -44,5 +48,11 @@ public class CharacterEntity {
 	@Column(name = "character_image")
 	private String characterImage;
 
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "movie_id", insertable = false, updatable = false)
+	private MovieEntity movie;
+	
+	@Column(name = "movie_id", nullable = false)
+	private Long movieId;
 
 }
