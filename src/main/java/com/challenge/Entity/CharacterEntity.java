@@ -52,7 +52,7 @@ public class CharacterEntity {
 	@Column(name = "character_image")
 	private String characterImage;
 
-	@ManyToMany(mappedBy = "icons", cascade = CascadeType.ALL)
+	@ManyToMany(mappedBy = "characters", cascade = CascadeType.ALL)
 	private List<MovieEntity> movies = new ArrayList<>();
 
 }
