@@ -1,9 +1,11 @@
 package com.challenge.Service;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service
-public class CharacterService {
+import com.challenge.DTO.CharacterDTO;
 
-	
+public interface CharacterService {
+
+	CharacterDTO save(CharacterDTO dto);
+	List<CharacterDTO> getAllCharacters(); 
 }
