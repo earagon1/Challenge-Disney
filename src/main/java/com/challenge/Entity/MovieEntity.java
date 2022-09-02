@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.CascadeType;
@@ -20,9 +21,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 
 @Data
@@ -67,5 +66,16 @@ public class MovieEntity {
 	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(name = "character_movie", joinColumns = @JoinColumn(name= "movie_id"),inverseJoinColumns = @JoinColumn(name = "character_id"))
 	private Set<CharacterEntity> characters = new HashSet<>();
-	
+
+
+
+
+
+
+
+
+
+
+
+
 }

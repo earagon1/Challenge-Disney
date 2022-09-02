@@ -1,8 +1,13 @@
 package com.challenge.Service;
 
-import org.springframework.stereotype.Service;
+import com.challenge.DTO.CharacterDTO;
+import com.challenge.DTO.MovieDTO;
 
-@Service
-public class MovieService {
+import java.util.List;
+
+public interface MovieService {
+
+    MovieDTO save(MovieDTO dto);
+    List<MovieDTO> getAllMovies();
 
 }

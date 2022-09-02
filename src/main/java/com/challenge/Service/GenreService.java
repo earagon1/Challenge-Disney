@@ -1,8 +1,10 @@
 package com.challenge.Service;
 
-import org.springframework.stereotype.Service;
+import com.challenge.DTO.GenreDTO;
 
-@Service
-public class GenreService {
+import java.util.List;
 
+public interface GenreService {
+    GenreDTO save(GenreDTO dto);
+    List<GenreDTO> getAllGenres();
 }
