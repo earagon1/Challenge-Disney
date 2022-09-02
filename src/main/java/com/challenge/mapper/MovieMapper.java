@@ -16,7 +16,10 @@ public class MovieMapper {
         movieEntity.setMovieImage(dto.getImage());
         movieEntity.setMovieCreation(dto.getCreation());
         movieEntity.setMovieTitle(dto.getTitle());
-        //movieEntity.setMovies(dto.getMovies()); PREGUNTAR COMO SE HACE EL SET DE MOVIES
+        movieEntity.setQualification(dto.getQualification());
+        movieEntity.setGenre(dto.getGenre());
+        //movieEntity.setCharacters(dto.getCharacters());
+
         return movieEntity;
 
     }
@@ -27,7 +30,9 @@ public class MovieMapper {
         movieDTO.setImage(entity.getMovieImage());
         movieDTO.setTitle(entity.getMovieTitle());
         movieDTO.setCreation(entity.getMovieCreation());
-        //movieDTO.setMovies(entity.getMovies()); PREGUNTAR COMO SE HACE EL SET DE MOVIES;
+        movieDTO.setQualification(entity.getQualification());
+        movieDTO.setGenre(entity.getGenre());
+        //movieDTO.setCharacters(entity.getCharacters()); 
         return movieDTO;
 
     }
