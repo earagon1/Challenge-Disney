@@ -15,20 +15,18 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@SQLDelete(sql="UPDATE character SET deleted = true WHERE id=?")
+@Where(clause = "deleted=false")
 @Table(name = "character")
 public class CharacterEntity {
-	
-	/*
-	 * Atributos:
-	 * Imagen, Nombre, Edad, Peso, Historia, Películas, series asociadas
-	 * 
-	 * */
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,5 +50,8 @@ public class CharacterEntity {
 
 	@ManyToMany(mappedBy = "characters", cascade = CascadeType.ALL)
 	private List<MovieEntity> movies = new ArrayList<>();
+
+	@Column(name = "character_deleted")
+	private boolean characterDeleted = Boolean.FALSE;
 
 }

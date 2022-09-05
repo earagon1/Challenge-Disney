@@ -13,11 +13,15 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@SQLDelete(sql="UPDATE character SET deleted = true WHERE id=?")
+@Where(clause = "deleted=false")
 @Table(name = "genre")
 public class GenreEntity {
 
@@ -37,6 +41,8 @@ public class GenreEntity {
 	@Column (name="genre_image")
 	private String genreImage;
 
-	
+	@Column(name = "genre_deleted")
+	private boolean genreDeleted = Boolean.FALSE;
+
 
 }

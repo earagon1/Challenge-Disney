@@ -1,15 +1,13 @@
 package com.challenge.Controller;
 
 import java.util.List;
+import java.util.Set;
 
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.challenge.DTO.CharacterDTO;
 import com.challenge.Service.CharacterService;
@@ -22,12 +20,29 @@ public class CharacterController {
 	@Autowired
 	private CharacterService characterService;
 	
-	
+	@GetMapping("/{id}")
+	public ResponseEntity<CharacterDTO> getDetailById(@PathVariable Long id){
+		CharacterDTO character = this.characterService.getDetailsById(id);
+		return ResponseEntity.ok(character);
+	}
+
+
 	@GetMapping
 	public ResponseEntity<List<CharacterDTO>> getAll(){
 		List<CharacterDTO> characters = characterService.getAllCharacters();
 		return ResponseEntity.ok().body(characters);
 		
+	}
+
+	@GetMapping
+	public ResponseEntity<List<CharacterDTO>>  getDetailsByfilters(
+			@RequestParam(required = false) String name,
+			@RequestParam(required = false) String age,
+			@RequestParam(required = false) Set<Long> movies,
+			@RequestParam(required = false , defaultValue = "ASC") String order
+			){
+		List<CharacterDTO> characters = this.characterService.getByFilters(name, movies, order);
+		return ResponseEntity.ok(characters);
 	}
 	
 	@PostMapping
@@ -35,4 +50,18 @@ public class CharacterController {
 		CharacterDTO characterSave = characterService.save(character);
 		return ResponseEntity.status(HttpStatus.CREATED).body(characterSave);
 	}
+
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Void> delete(@PathVariable Long id){
+		this.characterService.delete(id);
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+	}
+
+
+	/*@PutMapping("/{id}")
+	public ResponseEntity<CharacterDTO> update(@PathVariable Long id, @RequestBody CharacterDTO character){
+		CharacterDTO result = this.characterService.update(id,character);
+		return ResponseEntity.ok().body(result);
+	}*/
+
 }

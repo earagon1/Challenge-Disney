@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class GenreDTO {
 
+	private String id;
 	private String name;
 	private String image;
 	private MovieEntity movie;

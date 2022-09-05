@@ -33,5 +33,8 @@ public class GenreServiceImpl implements GenreService {
         return result;
 
     }
+    public void delete(Long id){
+        this.genreRepository.deleteById(id);
+    }
 
 }

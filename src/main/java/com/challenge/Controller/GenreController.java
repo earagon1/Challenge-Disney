@@ -1,5 +1,6 @@
 package com.challenge.Controller;
 
+import com.challenge.DTO.CharacterDTO;
 import com.challenge.DTO.GenreDTO;
 
 import com.challenge.Service.GenreService;
@@ -17,6 +18,12 @@ public class GenreController {
 	@Autowired
 	private GenreService genreService;
 
+	@GetMapping("/{id}")
+	public ResponseEntity<GenreDTO> getDetailById(@PathVariable Long id){
+		GenreDTO genre = this.genreService.getDetailsById(id);
+		return ResponseEntity.ok(genre);
+	}
+
 	@GetMapping
 	public ResponseEntity<List<GenreDTO>> getAll(){
 		List<GenreDTO> genres = genreService.getAllGenres();
@@ -29,6 +36,13 @@ public class GenreController {
 		GenreDTO genreSave = genreService.save(genre);
 		return ResponseEntity.status(HttpStatus.CREATED).body(genreSave);
 	}
+
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Void> delete(@PathVariable Long id){
+		this.genreService.delete(id);
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+	}
+
 
 
 }
