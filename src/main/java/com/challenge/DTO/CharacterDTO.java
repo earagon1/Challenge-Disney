@@ -19,6 +19,6 @@ public class CharacterDTO {
 	private Double weigth;
 	private Integer age;
 	private String image;
-	private List<MovieEntity> movies;
+	private List<MovieDTO> movies;
 	
 }

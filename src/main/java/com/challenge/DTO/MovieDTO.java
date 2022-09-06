@@ -21,6 +21,6 @@ public class MovieDTO {
 	private Qualification qualification;
 	private GenreEntity genre;
     private Long genreId;
-	private List<Character> characters;
+	private List<CharacterDTO> characters;
 
 }

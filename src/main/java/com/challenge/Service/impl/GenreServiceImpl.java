@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class GenreServiceImpl implements GenreService {
@@ -33,6 +34,16 @@ public class GenreServiceImpl implements GenreService {
         return result;
 
     }
+
+    public GenreDTO getDetailsById(Long id){
+		Optional<GenreEntity> entity= this.genreRepository.findById(id);
+		if(!entity.isPresent()){
+			throw new RuntimeException("Id genero no valido"); //ParamNotFound
+		}
+		GenreDTO characterDTO = this.genreMapper.genreEntity2DTO(entity.get());//ver el boolean de characterEntity2DTO
+		return characterDTO;
+	}
+
     public void delete(Long id){
         this.genreRepository.deleteById(id);
     }

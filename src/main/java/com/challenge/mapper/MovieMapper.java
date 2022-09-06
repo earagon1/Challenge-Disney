@@ -13,7 +13,8 @@ import java.util.List;
 public class MovieMapper {
     @Autowired
     private CharacterMapper characterMapper;
-   public MovieEntity movieDTO2Entity(MovieDTO dto) {
+
+     public MovieEntity movieDTO2Entity(MovieDTO dto) {
 
         MovieEntity movieEntity = new MovieEntity();
         movieEntity.setMovieImage(dto.getImage());
@@ -21,13 +22,11 @@ public class MovieMapper {
         movieEntity.setMovieTitle(dto.getTitle());
         movieEntity.setQualification(dto.getQualification());
         movieEntity.setGenre(dto.getGenre());
-        //movieEntity.setCharacters(dto.getCharacters());
-
         return movieEntity;
 
     }
-
-    /*public MovieDTO movieEntity2DTO(MovieEntity entity) {
+/*
+   public MovieDTO movieEntity2DTO(MovieEntity entity) {
 
         MovieDTO dto = new MovieDTO();
         dto.setImage(entity.getMovieImage());
@@ -38,7 +37,18 @@ public class MovieMapper {
 
         return dto;
 
-    }*/
+    }
+
+
+    public List<MovieDTO> movieEntityList2DTOList(List<MovieEntity> entities){
+
+        List<MovieDTO> dtos= new ArrayList<>();
+        for (MovieEntity entity:entities) {
+            dtos.add(this.movieEntity2DTO(entity));
+        }
+        return dtos;
+    }
+*/
 
     public MovieDTO movieEntity2DTO(MovieEntity entity,boolean loadCharacters) {
 
@@ -49,21 +59,13 @@ public class MovieMapper {
         dto.setQualification(entity.getQualification());
         dto.setGenre(entity.getGenre());
         if(loadCharacters){
-            List<CharacterDTO> charactersDTO= this.characterMapper.characterEntitySet2DTOList(entity.getCharacters(),false);
-            dto.setCharacters(charactersDTO);
+            List<CharacterDTO> charactersDTOS= this.characterMapper.characterEntitySet2DTOList(entity.getCharacters(),false);
+            dto.setCharacters(charactersDTOS);
         }
         return dto;
 
     }
 
-    public List<MovieDTO> movieEntityList2DTOList(List<MovieEntity> entities){
-
-        List<MovieDTO> dtos= new ArrayList<>();
-        for (MovieEntity entity:entities) {
-            dtos.add(this.movieEntity2DTO(entity));
-        }
-        return dtos;
-    }
 
     public List<MovieDTO> movieEntityList2DTOList(List<MovieEntity> entities, boolean loadCharacters){
         List<MovieDTO> dtos =new ArrayList<>();
@@ -73,7 +75,7 @@ public class MovieMapper {
         return dtos;
     }
 
-    public List<MovieDTO> movieDTOList2Entity(List<MovieDTO> dtos){
+    public List<MovieEntity> movieDTOList2Entity(List<MovieDTO> dtos){
         List<MovieEntity> entities = new ArrayList<>();
         for(MovieDTO dto : dtos){
             entities.add(this.movieDTO2Entity(dto));
