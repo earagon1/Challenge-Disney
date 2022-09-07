@@ -1,51 +1,44 @@
 package com.challenge.Repository.Specification;
 
 import com.challenge.DTO.CharacterFiltersDTO;
+import com.challenge.DTO.MovieFiltersDTO;
 import com.challenge.Entity.CharacterEntity;
 import com.challenge.Entity.MovieEntity;
-import org.springframework.data.jpa.domain.Specification;
-import org.springframework.stereotype.Component;
-import org.springframework.util.CollectionUtils;
-import org.springframework.util.NumberUtils;
-import org.springframework.util.StringUtils;
-
 import jakarta.persistence.criteria.Expression;
 import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.JoinType;
 import jakarta.persistence.criteria.Predicate;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class CharacterSpecification {
+public class MovieSpecification {
 
-    public Specification<CharacterEntity> getByFilters(CharacterFiltersDTO filtersDTO){
+    public Specification<MovieEntity> getByFilters(MovieFiltersDTO filtersDTO){
         return (root,query,criteriaBuilder) ->{
             List<Predicate> predicates =new ArrayList<>();
 
-            if(StringUtils.hasLength(filtersDTO.getName())){
+            if(StringUtils.hasLength(filtersDTO.getTitle())){
                 predicates.add(
                         criteriaBuilder.like(
-                                criteriaBuilder.lower(root.get("denominacion")),
-                                "%" + filtersDTO.getName().toLowerCase() +"%"
+                                criteriaBuilder.lower(root.get("titulo")),
+                                "%" + filtersDTO.getTitle().toLowerCase() +"%"
                         )
                 );
             }
 
-           if(StringUtils.hasLength(filtersDTO.getAge().toString())){
+           if(StringUtils.hasLength(filtersDTO.getGenreId().toString())){
                 predicates.add(
                         criteriaBuilder.like(
                                 criteriaBuilder.lower(root.get("edad")),
-                                "%" + filtersDTO.getAge().toString().toLowerCase() +"%"
+                                "%" + filtersDTO.getGenreId().toString().toLowerCase() +"%"
                         )
                 );
-            }
-
-            if(!CollectionUtils.isEmpty(filtersDTO.getMovies())){
-                Join<MovieEntity,CharacterEntity> join = root.join("movies", JoinType.INNER);
-                Expression<String> moviesId = join.get("id");
-                predicates.add(moviesId.in(filtersDTO.getMovies()));
             }
 
             query.distinct(true);

@@ -1,24 +1,25 @@
 package com.challenge.DTO;
 
-import com.challenge.Entity.MovieEntity;
-import jakarta.persistence.SecondaryTable;
+import com.challenge.Entity.GenreEntity;
+import com.challenge.Entity.Qualification;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CharacterFiltersDTO {
+public class MovieFiltersDTO {
 
-    private String name;
-    private Integer age;
-    private Set<Long> movies;
+    private String title;
+    private Long genreId;
     private String order;
 
     public boolean isASC(){return this.order.compareToIgnoreCase("ASC")==0;}
     public boolean isDESC(){return this.order.compareToIgnoreCase("DESC")==0;}
+
+
 }

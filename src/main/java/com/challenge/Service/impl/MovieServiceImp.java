@@ -1,8 +1,13 @@
 package com.challenge.Service.impl;
 
+import com.challenge.DTO.CharacterDTO;
+import com.challenge.DTO.CharacterFiltersDTO;
 import com.challenge.DTO.MovieDTO;
+import com.challenge.DTO.MovieFiltersDTO;
+import com.challenge.Entity.CharacterEntity;
 import com.challenge.Entity.MovieEntity;
 import com.challenge.Repository.MovieRepository;
+import com.challenge.Repository.Specification.MovieSpecification;
 import com.challenge.Service.MovieService;
 import com.challenge.mapper.MovieMapper;
 
@@ -11,12 +16,16 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+
 @Service
 public class MovieServiceImp implements MovieService {
 
     @Autowired
     private MovieRepository movieRepository;
     private MovieMapper movieMapper;
+
+    private MovieSpecification movieSpecification;
 
     public MovieDTO save(MovieDTO dto) {
         MovieEntity entity = movieMapper.movieDTO2Entity(dto);
@@ -40,6 +49,13 @@ public class MovieServiceImp implements MovieService {
 		MovieDTO characterDTO = this.movieMapper.movieEntity2DTO(entity.get(),true);//ver el boolean de characterEntity2DTO
 		return characterDTO;
 	}
+
+    public List<MovieDTO> getByFilters(String name,Long idGenre, String order){
+        MovieFiltersDTO filtersDTO = new MovieFiltersDTO(name, idGenre, order);
+        List<MovieEntity> entities = this.movieRepository.findAll(this.movieSpecification.getByFilters(filtersDTO));
+        List<MovieDTO> dtos = this.movieMapper.movieEntitySet2DTOList(entities,true);
+        return dtos;
+    }
 
     public void delete(Long id){
         this.movieRepository.deleteById(id);

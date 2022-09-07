@@ -62,14 +62,11 @@ public class CharacterServiceImp implements CharacterService {
 		return characterDTO;
 	}
 
-
-	public List<CharacterDTO> getByFilters(String name, Set<Long> movies, String order){
-		CharacterFiltersDTO filtersDTO = new CharacterFiltersDTO(name, movies, order);
+	public List<CharacterDTO> getByFilters(String name,Integer age, Set<Long> movies, String order){
+		CharacterFiltersDTO filtersDTO = new CharacterFiltersDTO(name, age ,movies, order);
 		List<CharacterEntity> entities = this.characterRepository.findAll(this.characterSpecification.getByFilters(filtersDTO));
 		List<CharacterDTO> dtos = this.characterMapper.characterEntitySet2DTOList(entities,true);
 		return dtos;
 	}
-
-
 
 }

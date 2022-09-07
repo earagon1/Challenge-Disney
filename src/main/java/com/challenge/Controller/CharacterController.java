@@ -37,11 +37,11 @@ public class CharacterController {
 	@GetMapping
 	public ResponseEntity<List<CharacterDTO>>  getDetailsByfilters(
 			@RequestParam(required = false) String name,
-			@RequestParam(required = false) String age,
+			@RequestParam(required = false) Integer age,
 			@RequestParam(required = false) Set<Long> movies,
 			@RequestParam(required = false , defaultValue = "ASC") String order
 			){
-		List<CharacterDTO> characters = this.characterService.getByFilters(name, movies, order);
+		List<CharacterDTO> characters = this.characterService.getByFilters(name, age,movies, order);
 		return ResponseEntity.ok(characters);
 	}
 	
@@ -56,12 +56,5 @@ public class CharacterController {
 		this.characterService.delete(id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
-
-
-	/*@PutMapping("/{id}")
-	public ResponseEntity<CharacterDTO> update(@PathVariable Long id, @RequestBody CharacterDTO character){
-		CharacterDTO result = this.characterService.update(id,character);
-		return ResponseEntity.ok().body(result);
-	}*/
 
 }

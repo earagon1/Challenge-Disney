@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("movie")
@@ -27,6 +28,16 @@ public class MovieController {
 	public ResponseEntity<List<MovieDTO>> getAll(){
 		List<MovieDTO> movies = movieService.getAllMovies();
 		return ResponseEntity.ok().body(movies);
+	}
+
+	@GetMapping
+	public ResponseEntity<List<MovieDTO>>  getDetailsByfilters(
+			@RequestParam(required = false) String name,
+			@RequestParam(required = false) Long idGenre,
+			@RequestParam(required = false , defaultValue = "ASC") String order
+	){
+		List<MovieDTO> movies = this.movieService.getByFilters(name, idGenre,order);
+		return ResponseEntity.ok(movies);
 	}
 
 	@PostMapping
