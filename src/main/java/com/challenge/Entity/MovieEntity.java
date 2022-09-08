@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
+import lombok.*;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.CascadeType;
@@ -20,24 +23,18 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@SQLDelete(sql="UPDATE character SET deleted = true WHERE id=?")
+@Where(clause = "deleted=false")
 @Table(name = "movie")
 public class MovieEntity {
 
-	/*
-	 * Atributos
-	 * Imagen,Título,Fecha de creación,Calificación (del 1 al 5),Personajes asociados
-	 * 
-	 * */
-	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	@Column (name="movie_id")
@@ -67,5 +64,8 @@ public class MovieEntity {
 	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(name = "character_movie", joinColumns = @JoinColumn(name= "movie_id"),inverseJoinColumns = @JoinColumn(name = "character_id"))
 	private Set<CharacterEntity> characters = new HashSet<>();
-	
+
+	@Column(name = "movie_deleted")
+	private boolean movieDeleted = Boolean.FALSE;
+
 }
