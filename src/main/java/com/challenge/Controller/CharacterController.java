@@ -27,7 +27,7 @@ public class CharacterController {
 	}
 
 
-	@GetMapping
+	@GetMapping("/list")
 	public ResponseEntity<List<CharacterDTO>> getAll(){
 		List<CharacterDTO> characters = characterService.getAllCharacters();
 		return ResponseEntity.ok().body(characters);

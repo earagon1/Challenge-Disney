@@ -3,6 +3,7 @@ package com.challenge.Service.impl;
 import com.challenge.DTO.GenreDTO;
 
 import com.challenge.Entity.GenreEntity;
+import com.challenge.Exception.ParamNotFound;
 import com.challenge.Repository.GenreRepository;
 
 import com.challenge.Service.GenreService;
@@ -38,7 +39,7 @@ public class GenreServiceImpl implements GenreService {
     public GenreDTO getDetailsById(Long id){
 		Optional<GenreEntity> entity= this.genreRepository.findById(id);
 		if(!entity.isPresent()){
-			throw new RuntimeException("Id genero no valido"); //ParamNotFound
+			throw new ParamNotFound("Id genre not valid");
 		}
 		GenreDTO characterDTO = this.genreMapper.genreEntity2DTO(entity.get());//ver el boolean de characterEntity2DTO
 		return characterDTO;
