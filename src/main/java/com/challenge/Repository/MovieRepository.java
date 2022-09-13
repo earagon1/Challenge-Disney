@@ -1,6 +1,5 @@
 package com.challenge.Repository;
 
-import com.challenge.Entity.CharacterEntity;
 import com.challenge.Entity.MovieEntity;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;

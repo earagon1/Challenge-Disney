@@ -1,4 +1,4 @@
-package com.challenge.Service;
+package com.challenge.Repository.Service;
 
 import java.util.List;
 import java.util.Set;

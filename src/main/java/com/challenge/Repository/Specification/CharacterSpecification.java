@@ -6,7 +6,6 @@ import com.challenge.Entity.MovieEntity;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
-import org.springframework.util.NumberUtils;
 import org.springframework.util.StringUtils;
 
 import jakarta.persistence.criteria.Expression;

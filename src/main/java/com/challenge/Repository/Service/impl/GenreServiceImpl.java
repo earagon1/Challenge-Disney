@@ -1,4 +1,4 @@
-package com.challenge.Service.impl;
+package com.challenge.Repository.Service.impl;
 
 import com.challenge.DTO.GenreDTO;
 
@@ -6,7 +6,7 @@ import com.challenge.Entity.GenreEntity;
 import com.challenge.Exception.ParamNotFound;
 import com.challenge.Repository.GenreRepository;
 
-import com.challenge.Service.GenreService;
+import com.challenge.Repository.Service.GenreService;
 import com.challenge.mapper.GenreMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

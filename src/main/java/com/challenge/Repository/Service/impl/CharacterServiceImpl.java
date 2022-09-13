@@ -1,23 +1,23 @@
-package com.challenge.Service.impl;
+package com.challenge.Repository.Service.impl;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
 import com.challenge.DTO.CharacterFiltersDTO;
+import com.challenge.Repository.Service.MovieService;
 import com.challenge.Repository.Specification.CharacterSpecification;
-import com.challenge.Service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.challenge.DTO.CharacterDTO;
 import com.challenge.Entity.CharacterEntity;
 import com.challenge.Repository.CharacterRepository;
-import com.challenge.Service.CharacterService;
+import com.challenge.Repository.Service.CharacterService;
 import com.challenge.mapper.CharacterMapper;
 
 @Service
-public class CharacterServiceImp implements CharacterService {
+public class CharacterServiceImpl implements CharacterService {
 
 	private CharacterRepository characterRepository;
 	private CharacterSpecification characterSpecification;
@@ -25,10 +25,10 @@ public class CharacterServiceImp implements CharacterService {
 	private MovieService movieService;
 
 	@Autowired
-	public  CharacterServiceImp(CharacterRepository characterRepository,
-								CharacterSpecification characterSpecification,
-								CharacterMapper characterMapper,
-								MovieService movieService){
+	public CharacterServiceImpl(CharacterRepository characterRepository,
+                                CharacterSpecification characterSpecification,
+                                CharacterMapper characterMapper,
+                                MovieService movieService){
 		this.characterRepository=characterRepository;
 		this.characterSpecification=characterSpecification;
 		this.characterMapper=characterMapper;

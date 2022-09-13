@@ -1,7 +1,5 @@
 package com.challenge.DTO;
 
-import com.challenge.Entity.MovieEntity;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

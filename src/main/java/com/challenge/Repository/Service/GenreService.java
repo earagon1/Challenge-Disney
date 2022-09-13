@@ -1,4 +1,4 @@
-package com.challenge.Service;
+package com.challenge.Repository.Service;
 
 import com.challenge.DTO.GenreDTO;
 

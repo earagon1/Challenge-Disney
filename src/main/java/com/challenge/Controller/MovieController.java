@@ -1,15 +1,13 @@
 package com.challenge.Controller;
 
-import com.challenge.DTO.CharacterDTO;
 import com.challenge.DTO.MovieDTO;
-import com.challenge.Service.MovieService;
+import com.challenge.Repository.Service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("movie")

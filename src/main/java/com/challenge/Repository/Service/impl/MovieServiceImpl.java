@@ -1,14 +1,11 @@
-package com.challenge.Service.impl;
+package com.challenge.Repository.Service.impl;
 
-import com.challenge.DTO.CharacterDTO;
-import com.challenge.DTO.CharacterFiltersDTO;
 import com.challenge.DTO.MovieDTO;
 import com.challenge.DTO.MovieFiltersDTO;
-import com.challenge.Entity.CharacterEntity;
 import com.challenge.Entity.MovieEntity;
 import com.challenge.Repository.MovieRepository;
+import com.challenge.Repository.Service.MovieService;
 import com.challenge.Repository.Specification.MovieSpecification;
-import com.challenge.Service.MovieService;
 import com.challenge.mapper.MovieMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +13,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
-public class MovieServiceImp implements MovieService {
+public class MovieServiceImpl implements MovieService {
 
     @Autowired
     private MovieRepository movieRepository;

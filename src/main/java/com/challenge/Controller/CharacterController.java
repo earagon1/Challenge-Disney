@@ -1,17 +1,14 @@
 package com.challenge.Controller;
 
-import java.util.List;
-import java.util.Set;
-
-import org.apache.coyote.Response;
+import com.challenge.DTO.CharacterDTO;
+import com.challenge.Repository.Service.CharacterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.challenge.DTO.CharacterDTO;
-import com.challenge.Service.CharacterService;
-import com.challenge.Service.impl.CharacterServiceImp;
+import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("character")

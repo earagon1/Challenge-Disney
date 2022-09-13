@@ -1,4 +1,4 @@
-package com.challenge.DTO;
+package com.challenge.Auth.dto;
 
 import lombok.Data;
 import javax.validation.constraints.Email;

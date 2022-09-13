@@ -1,16 +1,10 @@
 package com.challenge.Repository.Specification;
 
-import com.challenge.DTO.CharacterFiltersDTO;
 import com.challenge.DTO.MovieFiltersDTO;
-import com.challenge.Entity.CharacterEntity;
 import com.challenge.Entity.MovieEntity;
-import jakarta.persistence.criteria.Expression;
-import jakarta.persistence.criteria.Join;
-import jakarta.persistence.criteria.JoinType;
 import jakarta.persistence.criteria.Predicate;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
-import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
