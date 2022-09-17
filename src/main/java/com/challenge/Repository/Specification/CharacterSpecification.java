@@ -1,8 +1,8 @@
 package com.challenge.Repository.Specification;
 
 import com.challenge.DTO.CharacterFiltersDTO;
-import com.challenge.Entity.CharacterEntity;
-import com.challenge.Entity.MovieEntity;
+import com.challenge.Repository.Entity.CharacterEntity;
+import com.challenge.Repository.Entity.MovieEntity;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;

@@ -2,7 +2,7 @@ package com.challenge.Repository.Service.impl;
 
 import com.challenge.DTO.MovieDTO;
 import com.challenge.DTO.MovieFiltersDTO;
-import com.challenge.Entity.MovieEntity;
+import com.challenge.Repository.Entity.MovieEntity;
 import com.challenge.Repository.MovieRepository;
 import com.challenge.Repository.Service.MovieService;
 import com.challenge.Repository.Specification.MovieSpecification;

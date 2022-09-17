@@ -1,6 +1,6 @@
 package com.challenge.Repository;
 
-import com.challenge.Entity.GenreEntity;
+import com.challenge.Repository.Entity.GenreEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

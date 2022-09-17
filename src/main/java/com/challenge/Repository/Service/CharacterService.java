@@ -1,9 +1,9 @@
 package com.challenge.Repository.Service;
 
+import com.challenge.DTO.CharacterDTO;
+
 import java.util.List;
 import java.util.Set;
-
-import com.challenge.DTO.CharacterDTO;
 
 public interface CharacterService {
 
@@ -12,7 +12,10 @@ public interface CharacterService {
 	//CharacterDTO update(Long id, CharacterDTO character);
 	void delete(Long id);
 
-   CharacterDTO getDetailsById(Long id);
+   	CharacterDTO getDetailsById(Long id);
 
 	List<CharacterDTO> getByFilters(String name,Integer age, Set<Long> movies, String order);
+
+	//CharacterDTO updateCharacter (Long id,CharacterDTO dto );
+
 }

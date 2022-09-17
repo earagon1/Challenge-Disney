@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.challenge.DTO.CharacterDTO;
-import com.challenge.Entity.CharacterEntity;
+import com.challenge.Repository.Entity.CharacterEntity;
 
 @Component
 public class CharacterMapper {

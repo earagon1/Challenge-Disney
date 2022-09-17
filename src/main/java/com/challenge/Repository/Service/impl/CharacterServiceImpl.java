@@ -1,20 +1,19 @@
 package com.challenge.Repository.Service.impl;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-
+import com.challenge.DTO.CharacterDTO;
 import com.challenge.DTO.CharacterFiltersDTO;
+import com.challenge.Repository.Entity.CharacterEntity;
+import com.challenge.Repository.CharacterRepository;
+import com.challenge.Repository.Service.CharacterService;
 import com.challenge.Repository.Service.MovieService;
 import com.challenge.Repository.Specification.CharacterSpecification;
+import com.challenge.mapper.CharacterMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.challenge.DTO.CharacterDTO;
-import com.challenge.Entity.CharacterEntity;
-import com.challenge.Repository.CharacterRepository;
-import com.challenge.Repository.Service.CharacterService;
-import com.challenge.mapper.CharacterMapper;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class CharacterServiceImpl implements CharacterService {
@@ -53,12 +52,15 @@ public class CharacterServiceImpl implements CharacterService {
 		this.characterRepository.deleteById(id);
 	}
 
+	/*public CharacterDTO updateCharacter (Long id,CharacterDTO dto ){
+
+	}*/
 	public CharacterDTO getDetailsById(Long id){
 		Optional<CharacterEntity> entity= this.characterRepository.findById(id);
 		if(!entity.isPresent()){
 			throw new RuntimeException("Id character no valido"); //ParamNotFound
 		}
-		CharacterDTO characterDTO = this.characterMapper.characterEntity2DTO(entity.get(),true);//ver el boolean de characterEntity2DTO
+		CharacterDTO characterDTO = this.characterMapper.characterEntity2DTO(entity.get(),true);
 		return characterDTO;
 	}
 
@@ -68,5 +70,6 @@ public class CharacterServiceImpl implements CharacterService {
 		List<CharacterDTO> dtos = this.characterMapper.characterEntitySet2DTOList(entities,true);
 		return dtos;
 	}
+
 
 }

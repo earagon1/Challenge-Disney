@@ -1,4 +1,4 @@
-package com.challenge.Auth.entity;
+package com.challenge.Auth.dto.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

@@ -2,7 +2,7 @@ package com.challenge.Repository.Service.impl;
 
 import com.challenge.DTO.GenreDTO;
 
-import com.challenge.Entity.GenreEntity;
+import com.challenge.Repository.Entity.GenreEntity;
 import com.challenge.Exception.ParamNotFound;
 import com.challenge.Repository.GenreRepository;
 

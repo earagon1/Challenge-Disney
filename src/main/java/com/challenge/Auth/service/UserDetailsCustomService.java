@@ -1,14 +1,7 @@
 package com.challenge.Auth.service;
 
-import com.challenge.Auth.dto.UserDTO;
-import com.challenge.Auth.entity.UserEntity;
-import com.challenge.Auth.repository.UserRepository;
-import com.challenge.Repository.Service.EmailService;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.Collections;
-
 public class UserDetailsCustomService implements UserDetailService {
+    /*
 
     @Autowired
     private UserRepository userRepository;
@@ -35,5 +28,5 @@ public class UserDetailsCustomService implements UserDetailService {
             emailService.sendWelcomeEmailTo(userEntity.getUserName());
         }
         return userEntity != null;
-    }
+    }*/
 }

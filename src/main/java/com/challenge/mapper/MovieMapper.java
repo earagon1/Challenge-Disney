@@ -2,8 +2,7 @@ package com.challenge.mapper;
 
 import com.challenge.DTO.CharacterDTO;
 import com.challenge.DTO.MovieDTO;
-import com.challenge.Entity.CharacterEntity;
-import com.challenge.Entity.MovieEntity;
+import com.challenge.Repository.Entity.MovieEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

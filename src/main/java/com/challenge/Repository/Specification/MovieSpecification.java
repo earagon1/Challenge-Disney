@@ -1,7 +1,7 @@
 package com.challenge.Repository.Specification;
 
 import com.challenge.DTO.MovieFiltersDTO;
-import com.challenge.Entity.MovieEntity;
+import com.challenge.Repository.Entity.MovieEntity;
 import jakarta.persistence.criteria.Predicate;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;

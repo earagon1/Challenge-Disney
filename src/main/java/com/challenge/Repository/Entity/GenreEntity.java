@@ -1,4 +1,4 @@
-package com.challenge.Entity;
+package com.challenge.Repository.Entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,19 +1,11 @@
 package com.challenge.Auth.controller;
 
-import com.challenge.Auth.dto.UserDTO;
-import com.challenge.Auth.service.UserDetailsCustomService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
-
 @RestController
 @RequestMapping("/auth")
-public class UserAuthController {
+public class UserAuthController {/*
     private UserDetailsCustomService userDetailsCustomService;
     private AuthenticationManager authenticationManager;
     private JwtUtils jwtUtils;
@@ -30,5 +22,5 @@ public class UserAuthController {
 
     @PostMapping("/singup")
     public ResponseEntity<AuthenticationResponse> signUo(@Valid @RequestBody UserDTO user) throws
-
+*/
 }
