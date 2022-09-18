@@ -1,7 +1,7 @@
 package com.challenge.Controller;
 
 import com.challenge.DTO.CharacterDTO;
-import com.challenge.Repository.Service.CharacterService;
+import com.challenge.Service.CharacterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

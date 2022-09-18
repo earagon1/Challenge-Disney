@@ -1,7 +1,7 @@
 package com.challenge.mapper;
 
 import com.challenge.DTO.GenreDTO;
-import com.challenge.Repository.Entity.GenreEntity;
+import com.challenge.Entity.GenreEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

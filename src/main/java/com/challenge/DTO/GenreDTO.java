@@ -1,6 +1,6 @@
 package com.challenge.DTO;
 
-import com.challenge.Repository.Entity.MovieEntity;
+import com.challenge.Entity.MovieEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -3,8 +3,8 @@ package com.challenge.DTO;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.challenge.Repository.Entity.GenreEntity;
-import com.challenge.Repository.Entity.Qualification;
+import com.challenge.Entity.GenreEntity;
+import com.challenge.Entity.Qualification;
 
 import lombok.*;
 

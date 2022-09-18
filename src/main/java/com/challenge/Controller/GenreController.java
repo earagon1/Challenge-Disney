@@ -2,7 +2,7 @@ package com.challenge.Controller;
 
 import com.challenge.DTO.GenreDTO;
 
-import com.challenge.Repository.Service.GenreService;
+import com.challenge.Service.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,7 @@
 package com.challenge.Controller;
 
 import com.challenge.DTO.MovieDTO;
-import com.challenge.Repository.Service.MovieService;
+import com.challenge.Service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
