@@ -1,15 +1,20 @@
 package com.challenge.Security.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
     @Id
     @GeneratedValue(generator = "UUID")
@@ -18,7 +23,7 @@ public class User {
 
     @NotNull
     @Column(unique = true)
-    private String username;
+    private String userName;
 
     @NotNull
     @Email
@@ -26,4 +31,10 @@ public class User {
 
     @NotNull
     private String password;
+
+    @NotNull
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="user_role",joinColumns = @JoinColumn(name= "user_id"), inverseJoinColumns = @JoinColumn(name="role_id"))
+    private transient Set<Role> roles = new HashSet<>();
+
 }
