@@ -23,8 +23,8 @@ import org.hibernate.annotations.Where;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@SQLDelete(sql="UPDATE character SET deleted = true WHERE id=?")
-@Where(clause = "deleted=false")
+//@SQLDelete(sql="UPDATE character SET deleted = true WHERE id=?")
+//@Where(clause = "deleted=false")
 @Table(name = "character")
 public class CharacterEntity {
 	
@@ -36,8 +36,8 @@ public class CharacterEntity {
 	@Column(name = "character_name")
 	private String characterName;
 
-	@Column(name = "character_history")
-	private String characterHistory;
+	@Column(name = "character_story")
+	private String characterStory;
 	
 	@Column(name = "character_weigth")
 	private Double characterWeigth;
@@ -51,7 +51,7 @@ public class CharacterEntity {
 	@ManyToMany(mappedBy = "characters", cascade = CascadeType.ALL)
 	private List<MovieEntity> movies = new ArrayList<>();
 
-	@Column(name = "character_deleted")
-	private boolean characterDeleted = Boolean.FALSE;
+	//@Column(name = "character_deleted")
+	//private boolean characterDeleted = Boolean.FALSE;
 
 }

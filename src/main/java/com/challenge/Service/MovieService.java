@@ -10,7 +10,7 @@ public interface MovieService {
 
     MovieDTO save(MovieDTO dto);
     List<MovieDTO> getAllMovies();
-    void delete(Long id);
-    MovieDTO getDetailsById(Long id);
-    List<MovieDTO> getByFilters(String name, Long idGenre, String order);
+    //void delete(Long id);
+    //MovieDTO getDetailsById(Long id);
+    //List<MovieDTO> getByFilters(String name, Long idGenre, String order);
 }

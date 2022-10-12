@@ -30,8 +30,8 @@ import jakarta.persistence.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@SQLDelete(sql="UPDATE character SET deleted = true WHERE id=?")
-@Where(clause = "deleted=false")
+//@SQLDelete(sql="UPDATE character SET deleted = true WHERE id=?")
+//@Where(clause = "deleted=false")
 @Table(name = "movie")
 public class MovieEntity {
 
@@ -58,14 +58,14 @@ public class MovieEntity {
     @JoinColumn(name = "genre_id", insertable = false, updatable = false)
 	private GenreEntity genre;
 	
-	@Column(name = "genre_id", nullable = false)
+	@Column(name = "genre_id"/*, nullable = false*/)
 	private Long genreId;
 	
 	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(name = "character_movie", joinColumns = @JoinColumn(name= "movie_id"),inverseJoinColumns = @JoinColumn(name = "character_id"))
 	private Set<CharacterEntity> characters = new HashSet<>();
 
-	@Column(name = "movie_deleted")
-	private boolean movieDeleted = Boolean.FALSE;
+	//@Column(name = "movie_deleted")
+	//private boolean movieDeleted = Boolean.FALSE;
 
 }

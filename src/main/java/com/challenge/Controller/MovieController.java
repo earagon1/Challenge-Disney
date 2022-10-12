@@ -18,17 +18,24 @@ public class MovieController {
 	@Autowired
 	private MovieService movieService;
 
+	@PostMapping
+	public ResponseEntity<MovieDTO> save(@RequestBody MovieDTO movie){
+		MovieDTO movieSave = movieService.save(movie);
+		return ResponseEntity.status(HttpStatus.CREATED).body(movieSave);
+	}
+	@GetMapping("/list")
+	public ResponseEntity<List<MovieDTO>> getAll(){
+		List<MovieDTO> movies = movieService.getAllMovies();
+		return ResponseEntity.ok().body(movies);
+	}
+/*
 	@GetMapping("/{id}")
 	public ResponseEntity<MovieDTO> getDetailById(@PathVariable Long id){
 		MovieDTO movie = this.movieService.getDetailsById(id);
 		return ResponseEntity.ok(movie);
 	}
 
-	@GetMapping("/list")
-	public ResponseEntity<List<MovieDTO>> getAll(){
-		List<MovieDTO> movies = movieService.getAllMovies();
-		return ResponseEntity.ok().body(movies);
-	}
+
 
 	@GetMapping
 	public ResponseEntity<List<MovieDTO>>  getDetailsByfilters(
@@ -40,17 +47,12 @@ public class MovieController {
 		return ResponseEntity.ok(movies);
 	}
 
-	@PostMapping
-	public ResponseEntity<MovieDTO> save(@RequestBody MovieDTO movie){
-		MovieDTO movieSave = movieService.save(movie);
-		return ResponseEntity.status(HttpStatus.CREATED).body(movieSave);
-	}
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Long id){
 		this.movieService.delete(id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
-
+*/
 
 }

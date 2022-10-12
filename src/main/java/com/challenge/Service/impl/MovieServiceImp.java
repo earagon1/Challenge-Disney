@@ -1,10 +1,6 @@
 package com.challenge.Service.impl;
 
-import com.challenge.DTO.CharacterDTO;
-import com.challenge.DTO.CharacterFiltersDTO;
 import com.challenge.DTO.MovieDTO;
-import com.challenge.DTO.MovieFiltersDTO;
-import com.challenge.Entity.CharacterEntity;
 import com.challenge.Entity.MovieEntity;
 import com.challenge.Repository.MovieRepository;
 import com.challenge.Repository.Specification.MovieSpecification;
@@ -15,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class MovieServiceImp implements MovieService {
@@ -24,16 +18,31 @@ public class MovieServiceImp implements MovieService {
     @Autowired
     private MovieRepository movieRepository;
     private MovieMapper movieMapper;
-
     private MovieSpecification movieSpecification;
+
+    @Autowired
+    public MovieServiceImp(MovieRepository movieRepository,
+                     MovieSpecification movieSpecification,
+                     MovieMapper movieMapper){
+        this.movieRepository=movieRepository;
+        this.movieSpecification=movieSpecification;
+        this.movieMapper=movieMapper;
+    }
 
     public MovieDTO save(MovieDTO dto) {
         MovieEntity entity = movieMapper.movieDTO2Entity(dto);
         MovieEntity entitySaved = movieRepository.save(entity);
-        MovieDTO result = movieMapper.movieEntity2DTO(entitySaved, true);
+        MovieDTO result = movieMapper.movieEntity2DTO(entitySaved);
         return result;
     }
 
+    public List<MovieDTO> getAllMovies(){
+        List<MovieEntity> entities = this.movieRepository.findAll();
+        List<MovieDTO> result = this.movieMapper.movieEntityList2DTOList(entities, true);
+        return result;
+
+    }
+/*
     public List<MovieDTO> getAllMovies(){
         List<MovieEntity> entities = this.movieRepository.findAll();
         List<MovieDTO> result = this.movieMapper.movieEntityList2DTOList(entities, true);
@@ -60,5 +69,5 @@ public class MovieServiceImp implements MovieService {
     public void delete(Long id){
         this.movieRepository.deleteById(id);
     }
-
+*/
 }

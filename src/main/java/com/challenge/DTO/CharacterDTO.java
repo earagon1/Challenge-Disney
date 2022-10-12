@@ -15,7 +15,7 @@ public class CharacterDTO {
 
 	private Long id;
 	private String name;
-	private String history;
+	private String story;
 	private Double weigth;
 	private Integer age;
 	private String image;

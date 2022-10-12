@@ -20,8 +20,8 @@ import org.hibernate.annotations.Where;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@SQLDelete(sql="UPDATE character SET deleted = true WHERE id=?")
-@Where(clause = "deleted=false")
+//@SQLDelete(sql="UPDATE character SET deleted = true WHERE id=?")
+//@Where(clause = "deleted=false")
 @Table(name = "genre")
 public class GenreEntity {
 
@@ -41,8 +41,8 @@ public class GenreEntity {
 	@Column (name="genre_image")
 	private String genreImage;
 
-	@Column(name = "genre_deleted")
-	private boolean genreDeleted = Boolean.FALSE;
+	//@Column(name = "genre_deleted")
+	//private boolean genreDeleted = Boolean.FALSE;
 
 
 }

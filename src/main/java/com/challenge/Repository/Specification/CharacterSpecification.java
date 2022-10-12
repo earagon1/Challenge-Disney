@@ -27,7 +27,7 @@ public class CharacterSpecification {
             if(StringUtils.hasLength(filtersDTO.getName())){
                 predicates.add(
                         criteriaBuilder.like(
-                                criteriaBuilder.lower(root.get("denominacion")),
+                                criteriaBuilder.lower(root.get("name")),
                                 "%" + filtersDTO.getName().toLowerCase() +"%"
                         )
                 );
@@ -36,7 +36,7 @@ public class CharacterSpecification {
            if(StringUtils.hasLength(filtersDTO.getAge().toString())){
                 predicates.add(
                         criteriaBuilder.like(
-                                criteriaBuilder.lower(root.get("edad")),
+                                criteriaBuilder.lower(root.get("age")),
                                 "%" + filtersDTO.getAge().toString().toLowerCase() +"%"
                         )
                 );
@@ -50,7 +50,7 @@ public class CharacterSpecification {
 
             query.distinct(true);
 
-            String orderByField = "denominacion";
+            String orderByField = "name";
             query.orderBy(
                     filtersDTO.isASC() ?
                             criteriaBuilder.asc(root.get(orderByField)) :

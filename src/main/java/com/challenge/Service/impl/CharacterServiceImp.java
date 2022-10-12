@@ -34,25 +34,23 @@ public class CharacterServiceImp implements CharacterService {
 		this.characterMapper=characterMapper;
 		this.movieService= movieService;
 	}
-	
+
+	//para el post
 	public CharacterDTO save(CharacterDTO dto) {
-		
 		CharacterEntity entity = characterMapper.characterDTO2Entity(dto);
 		CharacterEntity entitySaved = characterRepository.save(entity);
 		CharacterDTO result = characterMapper.characterEntity2DTO(entitySaved,true);
 		return result; 
 	}
-	
+
+	//para traer todos los character
 	public List<CharacterDTO> getAllCharacters(){
 		List<CharacterEntity> entities = this.characterRepository.findAll();
 		List<CharacterDTO> result = this.characterMapper.characterEntityList2DTOList(entities,true);
 		return result;
 	}
 
-	public void delete(Long id){
-		this.characterRepository.deleteById(id);
-	}
-
+	//cambiarle el nombre a getCharacterByID, trae un character por id
 	public CharacterDTO getDetailsById(Long id){
 		Optional<CharacterEntity> entity= this.characterRepository.findById(id);
 		if(!entity.isPresent()){
@@ -60,6 +58,11 @@ public class CharacterServiceImp implements CharacterService {
 		}
 		CharacterDTO characterDTO = this.characterMapper.characterEntity2DTO(entity.get(),true);//ver el boolean de characterEntity2DTO
 		return characterDTO;
+	}
+
+/******/
+	public void delete(Long id){
+		this.characterRepository.deleteById(id);
 	}
 
 	public List<CharacterDTO> getByFilters(String name,Integer age, Set<Long> movies, String order){
